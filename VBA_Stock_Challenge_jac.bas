@@ -10,7 +10,7 @@ Attribute VB_Name = "Module11"
     ' "Greatest total volume"
 
 ' Force declaration of all variables to mitigate generation of errors due to undeclared variables
-'Option Explicit
+Option Explicit
 
 Sub stock_analysis()
     ' --------------------------------------------
@@ -26,8 +26,8 @@ Sub stock_analysis()
     ws.Activate
     
         ' Set initial variable for ticker symbol
-        Dim Ticker_Symbol As String
-        Ticker_Symbol = " "
+        Dim ticker_symbol As String
+        ticker_symbol = " "
 
         ' Keep track of location for each ticker symbol in the summary table
         Dim Ticker_Summary_Row As Integer
@@ -35,7 +35,7 @@ Sub stock_analysis()
     
         ' Variables for moderate solution
         Dim r As Long
-        Dim LastRow As Long
+        Dim lastrow As Long
         Dim Open_Price As Double
         Open_Price = 0
         Dim Close_Price As Double
@@ -50,15 +50,24 @@ Sub stock_analysis()
         ' Set initial Open Price. Subsequent Open Price will be set in the forLoop of each worksheet
         Open_Price = Cells(2, 3)
 
-        ' ****Variable for Bonus Solution
-        ' *Dim Percent_Increase As Double
+        ' --------------------------------------------
+        ' BONUS SOLUTION -- VARIABLES
+        ' --------------------------------------------
 
+        ' Variable for Bonus Solution
+        Dim Percent_Increase As Double
+        Percent_Increase = 0
+        Dim Percent_Decrease As Double
+        Percent_Decrease = 0
+        Dim Greatest_Total_Volume As Double
+        Greatest_Total_Volume = 0
+        
         ' --------------------------------------------
         ' ADD HEADERS TO TICKER SUMMARY AND RESIZE COLUMNS
         ' --------------------------------------------
 
         ' Determine the Last Row in column 1
-        LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+        lastrow = ws.Cells(Rows.Count, 1).End(xlUp).Row
 
         ' Add the word Ticker to the first column header
         ws.Cells(1, 9).Value = "Ticker"
@@ -76,36 +85,36 @@ Sub stock_analysis()
         ws.Range("I:L").EntireColumn.ColumnWidth = 16
 
         ' --------------------------------------------
-        ' ****BONUS SOLUTION -- ADD COLUMN HEADERS, ROW DESCRIPTORS AND FORMAT
+        ' BONUS SOLUTION -- ADD COLUMN HEADERS, ROW DESCRIPTORS AND FORMAT
         ' --------------------------------------------
-        ' ****Add the word Ticker to column O
-        ' ws.Cells(1, 15).Value = "Ticker"
+        ' Add the word Ticker to column O
+        ws.Cells(1, 15).Value = "Ticker"
 
-        ' ****Add the word Value to column P
-        ' ws.Cells(1, 16).Value = "Value"
+        ' Add the word Value to column P
+        ws.Cells(1, 16).Value = "Value"
     
-        ' ****Add "Greatest % Increase"
-        ' ws.Cells(2, 14).Value = "Greatest % Increase"
+        ' Add "Greatest % Increase"
+        ws.Cells(2, 14).Value = "Greatest % Increase"
 
-        ' ****Add "Greatest % Decrease"
-        ' ws.Cells(3, 14).Value = "Greatest % Decrease"
+        ' Add "Greatest % Decrease"
+        ws.Cells(3, 14).Value = "Greatest % Decrease"
 
-        ' ****Add "Greatest Total Volume"
-        ' ws.Cells(4, 14).Value = "Greatest Total Volume"
+        ' Add "Greatest Total Volume"
+        ws.Cells(4, 14).Value = "Greatest Total Volume"
 
-        '****Set column width for column N
-        ' ws.Range("N:N").EntireColumn.ColumnWidth = 20
+        ' Set column width for column N
+        ws.Range("N:N").EntireColumn.ColumnWidth = 20
 
         ' --------------------------------------------
         ' LOOP THROUGH ALL TICKERS
         ' --------------------------------------------
         ' Loop through from the start of row 2 to the last row that has a value in the last cell.
-        For r = 2 To LastRow
+        For r = 2 To lastrow
             ' Check if if the next Ticker Symbol is the same, if it is not...
             If ws.Cells(r + 1, 1).Value <> ws.Cells(r, 1).Value Then
 
                 ' Set the Ticker Symbol
-                Ticker_Symbol = ws.Cells(r, 1).Value
+                ticker_symbol = ws.Cells(r, 1).Value
 
                 ' Set the ticker Close price
                 Close_Price = ws.Cells(r, 6).Value
@@ -128,12 +137,12 @@ Sub stock_analysis()
                 Else
                 
                     ' Mitigate program crashing due to a run-time error 6 overflow
-                    MsgBox ("For " & Ticker_Symbol & ", there is an error due to " & "Open Price =" & Open_Price & ". Fix the field(s), or remove the worksheet and save the workbook.")
+                    MsgBox ("For " & ticker_symbol & ", there is an error due to " & "Open Price =" & Open_Price & ". Fix the field(s), or remove the worksheet and save the workbook.")
                     
                     End If
                     
                 ' Print the Ticker Symbol in the Ticker Summary Row
-                ws.Range("I" & Ticker_Summary_Row).Value = Ticker_Symbol
+                ws.Range("I" & Ticker_Summary_Row).Value = ticker_symbol
 
                 ' Print the Yearly Change in the Ticker Summary Row
                 ws.Range("J" & Ticker_Summary_Row).Value = Delta_Price
