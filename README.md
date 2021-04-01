@@ -47,5 +47,5 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Acknowledgments
 
-* Hat tip to Bryan Tang for pointing me in the righ direction on how to figure out the yearly change.
+* Hat tip to Bryan Tang for pointing me in the right direction on how to figure out the yearly change.
 * Used information from Free Soft Dev as inspiration in the development of the VBA. https://freesoft.dev/program/163047389
