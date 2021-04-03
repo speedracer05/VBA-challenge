@@ -2,23 +2,24 @@
 
 This is an Excel VBA script for the VBA challenge assignment that analyzes the provided historical stock market data, summarizing yearly change between the opening and close price for a give year, percent change and total  volume for each unique stock. Formatting is also applied; conditional format to the yearly change, highlighting a cell green for positive, and red for negative changes; numerical formatting for percent change, and thousands formatting for the total stock volume.
 
+The Bonus section was attempted, but not completed as time ran out. I'll attempt to complete on my own time --just for the challenge.
+
 ## Getting Started
 
 The script is saved in a .bas file, which can be imported into the Excel VBA challenge data project.
 
 ### Prerequisites
 
-You will need to use Excel, as well as the Excel file, "Multiple_year_stock__data.xlsx file, and the VBA file, "alphabetical_testing_jac.bas. 
+You will need to use Excel, as well as the Excel file, "Multiple_year_stock__data.xlsx file, and the VBA file, "VBA_Stock_Challenge_jac.bas. 
 
 ### Installing
 
 Using Excel, open the file "Multiple_year_stock__data.xlsx file
 Click on the developer tab
-Click on the tab "Visual Basic", and locate the File Explorer panel on left-panel of the MS VBA widow. 
+Click on the tab "Visual Basic", and locate the File Explorer panel on left-panel of the VBA widow. 
 Right-click the VBA Project "Multiple_year_stock_data" and select "import file" from the drop down menu
-Select and open the file "alphabetical_testing_jac.bas. 
+Select and open the file "VBA_Stock_Challenge_jac.bas. 
 
-```
 ## Running the script
 
 To run the script, you can select Run in the VBA Application window
