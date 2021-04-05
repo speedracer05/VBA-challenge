@@ -32,15 +32,8 @@ Ticker  |  Yearly Change  |  Percent Change  | Total Stock Volume
 
 ## Built with
 * Excel 2019 MSO (16.13801.20288) 64-bit
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
-
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
